@@ -1,6 +1,18 @@
 #include<iostream>
 using namespace std;
 
+void testD(){
+	char *str;
+	char *temp;
+	char a[]="hello world";
+	str=a;
+	temp=str;
+	++temp;
+	*temp='!';
+	cout<<str<<endl;
+
+}
+
 void testC(){
 	char *str[]={"welcome","to","Fortemedia","Nanjing"};
 	char **p=str+1;
@@ -38,7 +50,7 @@ void testA(){
 
 int main(){
 	
-	testC();
+	testD();
 	char str1[]="abc";
 	char str2[]="abc";
 	const char str3[]="abc";
