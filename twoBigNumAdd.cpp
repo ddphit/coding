@@ -1,4 +1,4 @@
-//å®ç°ä¸¤ä¸ªä»»æ„é•¿åº¦çš„ä¸¤ä¸ªæ­£æ•´æ•°ç›¸åŠ 
+//¿¿¿¿¿¿¿¿¿¿¿¿¿¿
 
 #include<iostream>
 #include<string.h>
@@ -9,44 +9,27 @@
 using namespace std;
 
 char *addBigInt(char * num1, char *num2){
-	int c=0;   //ä¿å­˜è¿‡ç¨‹ä¸­çš„è¿›ä½
-	int i=strlen(num1)-1;   //æŒ‡å‘num1çš„æœ€ä½ä½
+	int c=0;   //¿¿¿¿¿¿¿¿¿¿
+	int i=strlen(num1)-1;   //¿¿num1¿¿¿
 	cout<<i<<"--i  ";
-	int j=strlen(num2)-1;   //æŒ‡å‘num2çš„æœ€ä½ä½
+	int j=strlen(num2)-1;   //¿¿num2¿¿¿
 	cout<<j<<"--j   ";
-	int maxLen=(i>j)?i+2:j+2;   //æœ€é•¿çš„é•¿åº¦
+	int maxLen=(i>j)?i+2:j+2;   //¿¿¿¿¿¿¿¿¿
 	cout<<maxLen<<"--maxLen \n";
-	char *result;
+	char *result=(char*)malloc(20);
 	if(result==NULL)return NULL;
-//	result[maxLen]='\0';
-//	cout<<result<<endl;
 	int k=maxLen-1;
-//	int k=strlen(result)-1;
-	cout<<k<<"--k \n";
-//	result[k]='3';
-	char E[30];
-	result=E;
-	result[0]='3';
-	cout<<result<<endl;	
 	while(i>=0&&j>=0){
 		int temp1=(num1[i]-'0');
 		int temp2=(num2[j]-'0');
 		int temp3=temp1+temp2+c;
-	//	cout<<temp3<<endl;
-	//	result[k]=((num1[i]-'0')+(num2[j]-'0')+c)%10+'0';
-		
 		char tem=(temp3%10)+'0';
-//		cout<<"tem: "<<tem<<endl;
 		result[k]=tem;
-//		char *w=&tem;
-//		cout<<*w<<endl;
 		c=((num1[i]-'0')+(num2[j]-'0')+c)/10;
 		--i;
 		--j;
 		--k;
-		cout<<tem<<"   "<<result[k]<<"---result  \n ";
 	}
-	
 	while(i>=0){
 		result[k]=(num1[i]-'0'+c)%10+'0';
 		c=(num1[i]+c)/10;
@@ -57,11 +40,12 @@ char *addBigInt(char * num1, char *num2){
 	while(j>=0){
 		result[k]=(num2[j]-'0'+c)%10+'0';
 		c=(num2[j]-'0'+c)/10;
-		--i;
+		--j;
 		--k;
-	}
 	
+	}
 	result[k]=c+'0';
+	cout<<result<<endl;
 	if(result[0]=='0')return result+1;
 	else
 		return result;
@@ -73,7 +57,7 @@ int main(){
 	char b[]="45671254563123";
 	char *str1=a;
 	char *str2=b;
-	char *result;
+	char *result=new char[30];
 	result=addBigInt(str1,str2);
 	cout<<result<<endl;
 	return 0;

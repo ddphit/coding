@@ -1,6 +1,15 @@
 #include<iostream>
+#include<string.h>
 using namespace std;
 
+void testE(char *str, int n){
+	int len=strlen(str);
+	char *temp=new char[len*2+2];
+	temp=strcat(str,str);
+	str=temp+len-n;
+	*(str+len)='\0';
+	cout<<str<<endl;
+}
 void testD(){
 	char *str;
 	char *temp;
@@ -49,8 +58,9 @@ void testA(){
 }
 
 int main(){
-	
-	testD();
+	char a[]="abcdefghi";
+	char *re=a;
+	testE(a,2);
 	char str1[]="abc";
 	char str2[]="abc";
 	const char str3[]="abc";
